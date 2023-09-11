@@ -1,0 +1,23 @@
+module tb;
+  reg [15:0] in;
+  reg [1:0] sel;
+  wire [3:0] binary_result;
+  // Instantiate the Decoder module
+  Encoder Encoder (
+    .in(in),
+    .sel(sel),
+    .binary_result(binary_result)
+  );
+  // Simulation control
+  initial begin
+    // Test cases
+    sel = 2'b01; in = 15'd85; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    sel = 2'b00; in = 15'd40; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    sel = 2'b10; in = 15'd100; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    sel = 2'b01; in = 15'd68; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    sel = 2'b00; in = 15'd89; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    sel = 2'b10; in = 15'd123; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    sel = 2'b11; in = 15'd457; #10; $display("in=%b, sel=%b, binary_result=%b, ", in, sel, binary_result);
+    $finish;
+  end
+endmodule
