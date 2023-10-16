@@ -1,0 +1,1 @@
+module fsm_tb;reg clk,rst;wire [3:0] y;fsm_bl dut(clk,rst,y);always #5 clk=~clk;initial clk=0;initial beginrst=1; #10; rst=0; #200;$finish();endendmodule

@@ -1,0 +1,1 @@
+module tb;parameter NumPorts=4;reg [NumPorts-1:0] req;   wire [NumPorts-1:0] grant;FPA DUT(req,grant);initial begin $monitor("req=%b,grant=%b",req,grant);for(integer i=0;i<20;i=i+1) begin req=$random();#10;end$finish();endendmodule
